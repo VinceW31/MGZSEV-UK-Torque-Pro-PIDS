@@ -6,7 +6,7 @@ These PIDs were derived from Peter Nixon's fantastic work (on Github) and supple
 
 Download Torque Pro (the paid version) to you phone from the Play Store.  Torque Pro is not available for Apple Phones.
 
-Download the MGZSEV UK PIDs VerXX.csv file from the “Files” section of this group to your phone (downloads).
+Download all the files in this repositay MGZSEV UK PIDs VerXX.csv file from the “Files” section of this group to your phone (downloads).
 
 Download the MGZSEV Torque Dash Settings VerXX.dash file from the “Files” section of this group to your phone (downloads).
 
