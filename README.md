@@ -1,6 +1,6 @@
 # MGZSEV-UK-Torque-Pro-PIDS
 
-MGZSEV Torque Pro PIDs – Instructions for installation and use, for Version 2 PIDs.
+Instructions for installation and use of the Version 2 PIDs.
 
 These PIDs were derived from Peter Nixon's fantastic work (on Github) and supplemented with others from the OVMS group spreadsheet, the Thai app, and a good few of my own too. They are setup to work correctly with UK BMS Versions and developed for the UK ZSEV standard car using miles, mph and m/kwh units etc. Please note that some of the PIDs in the file are not meant to be displayed, they are used by other PIDs in their calcs (see below for details). The PIDs are continually being developed so check back often for more info.
 
