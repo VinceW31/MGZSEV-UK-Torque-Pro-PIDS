@@ -12,9 +12,9 @@ MGZSEV_Tyre_Pressure_Rear_Right,TP RR,0x22b001,C*4,0,300,kPa,724,,,1
 MGZSEV_Tyre_Pressure_Rear_Left,TP RL,0x22b001,D*4,0,300,kPa,724,,,1
 MGZSEV_Outside Temp,Outside,0x22bb05,A-40,0,50,c,7E3,,,1
 MGZSEV_Charging_Rate,Dis   Chg,,(VAL{MGZSEV_HV_Battery_Volts}*VAL{MGZSEV_HV_Current}/1000)*-1,-80,80,kW,,,,1
-MGZSEV_Range_60MPH,Range,,(42*VAL{MGZSEV_Cons_60MPH})*(1-((25-VAL{XX_OAT_Factored})*1.3/100))*(VAL{MGZSEV_SoC_Display}/100)*(VAL{MGZSEV_SOH}/100),0,200,max 60mph,,,,1
+MGZSEV_Range_60MPH,Range,,(42*VAL{MGZSEV_Cons_60MPH})*(1-((25-VAL{XX_OAT_Factored})*(VAL{XX_Consumption_Factor})/100))*(VAL{MGZSEV_SoC_Display}/100)*(VAL{MGZSEV_SOH}/100),0,200,max 60mph,,,,1
 MGZSEV_Target_Cons_60MPH,Target m/kwh,,VAL{MGZSEV_Range_60MPH}/(42*(VAL{MGZSEV_SOC_Display}/100)),0,10,max 60mph,,,,1
-MGZSEV_Range_70MPH,Range,,(42*VAL{XX_Cons_70MPH})*(1-((25-VAL{XX_OAT_Factored})*1.3/100))*(VAL{MGZSEV_SoC_Display}/100)*(VAL{MGZSEV_SOH}/100),0,200,max 70mph,,,,1
+MGZSEV_Range_70MPH,Range,,(42*VAL{XX_Cons_70MPH})*(1-((25-VAL{XX_OAT_Factored})*(VAL{XX_Consumption_Factor})/100))*(VAL{MGZSEV_SoC_Display}/100)*(VAL{MGZSEV_SOH}/100),0,200,max 70mph,,,,1
 MGZSEV_Target_Cons_70MPH,Target m/kwh,,VAL{MGZSEV_Range_70MPH}/(42*(VAL{MGZSEV_SOC_Display}/100)),0,10,max 70mph,,,,1
 MGZSEV_SoC_Display,SoC,,LOOKUP(1.1*(VAL{XX_Raw_SOC}+VAL{XX_BMS_Version_SoC _Factor})::-10~0=0:100~110=100),0,100,Batt %,,,,1
 MGZSEV_Cons_60MPH,Cons 60,,4,0,10,m/Kwh,,,,1
@@ -44,5 +44,6 @@ XX_BMS_SW_Ver_Raw,not for display,0x22f194,INT24(H:I:J),0,1000000,,781,,,1
 XX_Raw_SOC,not for display,0x22b046,INT16(A:B)/10,0,100,%,781,,,1
 XX_OAT_Factored,not for display,,LOOKUP(VAL{MGZSEV_Outside Temp}::25~50=25),-10,50,C,,,,1
 XX_Cons_70MPH,not for display,,VAL{MGZSEV_Cons_60MPH}/((70/60)*(70/60)),1,10,m/Kwh,,,,1
-XX_BMS_Version_SoC _Factor,not for display,,LOOKUP(VAL{MGZSEV_BMS_SW_Ver}:-2:5386551=-5:5387312=-5:5386808=-5:5387058=-3:5255225=-5),-100,100,,,,,1
+XX_BMS_Version_SoC_Factor,not for display,,LOOKUP(VAL{MGZSEV_BMS_SW_Ver}:-2:5386551=-5:5387312=-5:5386808=-5:5387058=-3:5255225=-5),-100,100,,,,,1
+XX_Consumption_Factor,not for display,,LOOKUP((1.15*(VAL{MGZSEV_Cons_60MPH}-3.8)+1)::2.38~10=2.38:0~1=1:1.149~1.15=1),1,10,,,,,1
 XXX_MGZSEV_PIDsFile_Ver,PIDs Ver,,3,1,100,,,,,1
