@@ -17,7 +17,7 @@ MGZSEV_Target_Cons_60MPH,Target m/kwh,,VAL{MGZSEV_Range_60MPH}/(42*(VAL{MGZSEV_S
 MGZSEV_Range_70MPH,Range,,(42*VAL{XX_Cons_70MPH})*(1-((25-VAL{XX_OAT_Factored})*(VAL{XX_Consumption_Factor})/100))*(VAL{MGZSEV_SoC_Display}/100)*(VAL{MGZSEV_SOH}/100),0,200,max 70mph,,,,1
 MGZSEV_Target_Cons_70MPH,Target m/kwh,,VAL{MGZSEV_Range_70MPH}/(42*(VAL{MGZSEV_SOC_Display}/100)),0,10,max 70mph,,,,1
 MGZSEV_SoC_Display,SoC,,LOOKUP(1.1*(VAL{XX_Raw_SOC}+VAL{XX_BMS_Version_SoC _Factor})::-10~0=0:100~110=100),0,100,Batt %,,,,1
-MGZSEV_Cons_60MPH,Cons 60,,4,0,10,m/Kwh,,,,1
+MGZSEV_Cons_60MPH,Cons 60,,4.5,0,10,m/Kwh,,,,1
 MGZSEV_Range_Charger_To_Charger,Charger,,((42*VAL{MGZSEV_Cons_60MPH})*(1-((25-VAL{XX_OAT_Factored})/100)))*(85-15)/100,1,200,Range,,,,1
 MGZSEV_BMS_SW_Ver,BMS SW,,LOOKUP(VAL{XX_BMS_SW_Ver_Raw}:'???':4272177='A01':5386551='R17':4543793='EU1':5387312='R40':5386808='R28':5387058='R32':5255225='P09'),0,1,,,,,1
 MGZSEV_ BMS CMU1 Error,CMU1 Error,0x22b001,INT16(C:D)/2000 - INT16(A:B)/2000,0,5,v,781,,,1
